@@ -1,0 +1,1 @@
+Provide me brief information about gemini flash 2.0 model and it's using restrictions for free user google account.

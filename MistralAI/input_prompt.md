@@ -1,0 +1,1 @@
+Provide me brief information about Mistral Le Chat (a virtual assistant developed by Mistral AI) and it's using restrictions for free user account.

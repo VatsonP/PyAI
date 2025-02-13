@@ -1,0 +1,1 @@
+Provide me brief information about DeepSeek v3 model and it's using restrictions for free user account.
