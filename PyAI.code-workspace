@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "AI_Studio"
+		},
+		{
+			"path": "DeepSeekAI"
+		},	
+		{
+			"path": "MistralAI"
+		}
+
+	],
+	"settings": {}
+}
