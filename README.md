@@ -11,3 +11,8 @@
  UserName: VatsonP
 
  Directory for My own Local Copy: d:\Trainings\PyProj\
+
+ Projects folder structure:
+  |-> AI_Studio
+  |-> DeepSeekAI
+  |-> MistralAI
