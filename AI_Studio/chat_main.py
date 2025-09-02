@@ -23,7 +23,7 @@ try:
     genai.configure(api_key=api_key_txt)
 
     generation_config = {
-        "temperature": 0.5,
+        "temperature": 0.75,
         "top_p": 0.95,
         "top_k": 40,
         "max_output_tokens": 8192,
