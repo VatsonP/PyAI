@@ -47,6 +47,14 @@ To start the chat application, run the main script:
 pipenv run python chat_main.py
 ```
 
+## Testing
+
+This project uses Python's built-in `unittest` framework. To run the tests, execute the following command:
+
+```bash
+python -m unittest discover tests
+```
+
 ## Usage
 
 After starting the application, you can type your messages in the console. The AI will respond to your prompts. You can modify the `input_prompt.md` to test different scenarios.
@@ -57,6 +65,7 @@ Here's an overview of the key files in this project:
 
 *   `chat_main.py`: The main entry point for the chat application.
 *   `chat_util_functions.py`: Contains helper functions and utilities used by the main application.
+*   `tests/`: Contains the unit tests for the project.
 *   `Pipfile` & `Pipfile.lock`: Manage the project's Python dependencies.
 *   `GEMINI.md`: This file - providing project documentation.
 *   `input_prompt.md`: Can be used to store and test various input prompts.
