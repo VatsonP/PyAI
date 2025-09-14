@@ -5,9 +5,9 @@ name = "pypi"
 
 [packages]
 markdown = "*"
-openai = "*"
 tkhtmlview = "*"
 python-dotenv = "*"
+openai = "*"
 
 [dev-packages]
 
