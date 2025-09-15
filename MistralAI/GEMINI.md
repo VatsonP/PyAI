@@ -18,6 +18,14 @@ These instructions will get you a copy of the project up and running on your loc
 *   Python 3.x
 *   `pipenv`
 
+### Dependencies
+
+The main dependencies of this project are:
+*   `mistralai`
+*   `tkhtmlview`
+*   `Markdown`
+*   `python-dotenv`
+
 ### Installation
 
 1.  **Clone the repository:**
@@ -43,7 +51,7 @@ These instructions will get you a copy of the project up and running on your loc
 To start the chat application, run the main script:
 
 ```bash
-pipenv run python src/chat_main.py
+pipenv run python -m mistral_chat_app.chat_main
 ```
 
 ## Testing
@@ -58,9 +66,10 @@ After starting the application, you can type your messages in the `input_prompt.
 
 Here's an overview of the key files in this project:
 
-*   `src/chat_main.py`: The main entry point for the chat application.
-*   `src/chat_util_functions.py`: Contains helper functions and utilities used by the main application.
+*   `src/mistral_chat_app/chat_main.py`: The main entry point for the chat application.
+*   `src/mistral_chat_app/chat_util_functions.py`: Contains helper functions and utilities used by the main application.
 *   `Pipfile` & `Pipfile.lock`: Manage the project's Python dependencies.
+*   `pyproject.toml`: Defines the project metadata and build configuration.
 *   `GEMINI.md`: This file - providing project documentation.
 *   `input_prompt.md`: Can be used to store and test various input prompts.
 *   `output_results.md`: Can be used to log or review the output from the AI.
