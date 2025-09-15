@@ -1,11 +1,11 @@
 {
 	"folders": [
 		{
-			"path": "AI_Studio"
-		},
-		{
 			"path": "DeepSeekAI"
 		},	
+		{
+			"path": "GeminiAI"
+		},
 		{
 			"path": "MistralAI"
 		}

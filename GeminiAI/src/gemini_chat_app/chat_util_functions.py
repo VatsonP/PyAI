@@ -3,8 +3,8 @@ from tkinter import scrolledtext
 from tkhtmlview import HTMLLabel
 from datetime import datetime
 
-# -- Util functions definitions --
 
+# -- Util functions definitions --
 
 def get_prompt_from_md(filename="input_prompt.md"):
     # Prompt reading function

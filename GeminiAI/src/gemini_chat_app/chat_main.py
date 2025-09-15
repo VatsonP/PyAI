@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 
 # Import functions from the separate file
-from chat_util_functions import get_prompt_from_md, log_interaction, show_response
+from gemini_chat_app.chat_util_functions import get_prompt_from_md, log_interaction, show_response
 
 def main():
     # Load environment variables from the .env file (if present)
@@ -64,8 +64,8 @@ def main():
         duration = end_time - start_time
         response_text = response.text
         log_interaction(prompt_text, start_time, end_time, duration, response_text)
-    except AttributeError:
-        print("Error getting response text")
+    except Exception as e:
+        print(f"Error sending message or processing response: {e}")        
         exit(1)
 
     # Converting response text to Markdown
