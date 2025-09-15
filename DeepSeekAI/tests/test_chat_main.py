@@ -17,9 +17,9 @@ class TestChatMain(unittest.TestCase):
     @patch('deepseek_chat_app.chat_main.OpenAI')
     @patch('deepseek_chat_app.chat_main.show_response')
     @patch('deepseek_chat_app.chat_main.log_interaction')
-    @patch('mistral_chat_app.chat_main.load_dotenv')
-    @patch('mistral_chat_app.chat_main.os.getenv')
-    def test_main_success(self, mock_log_interaction, mock_show_response, mock_openai, mock_get_prompt_from_md):
+    @patch('deepseek_chat_app.chat_main.load_dotenv')
+    @patch('deepseek_chat_app.chat_main.os.getenv')
+    def test_main_success(self, mock_getenv, mock_load_dotenv, mock_log_interaction, mock_show_response, mock_openai, mock_get_prompt_from_md):
         # Mock the return values of the patched functions
         mock_getenv.return_value = "test_key"
         mock_get_prompt_from_md.return_value = "Test prompt"
