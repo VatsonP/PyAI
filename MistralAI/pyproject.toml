@@ -1,0 +1,29 @@
+[project]
+# Core project metadata
+name = "mistral_chat_app"
+version = "0.1.0"
+description = "A simple chat application using the Mistral AI API."
+
+# Specifies the Python version required, taken from your Pipfile.
+# Using ">=" is best practice to allow for minor patch updates.
+requires-python = ">=3.12"
+
+# Main project dependencies, taken directly from the [packages] section of your Pipfile.
+dependencies = [
+    "mistralai",
+    "tkhtmlview",
+    "Markdown",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+# Development dependencies, for testing, linting, formatting, etc.
+# This section replaces the [dev-packages] from your Pipfile.
+dev = [
+    "unittest-xml-reporting", # If you need JUnit XML reports for CI/CD
+    "pytest",                 # A popular alternative test runner
+]
+
+[tool.setuptools.packages.find]
+# This tells the build system where to find the source code package.
+where = ["src"]
