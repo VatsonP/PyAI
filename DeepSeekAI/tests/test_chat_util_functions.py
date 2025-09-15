@@ -3,11 +3,9 @@ from unittest.mock import patch, mock_open, MagicMock
 import os
 import tkinter as tk
 
-# It is necessary to add the src directory to the path to be able to import the modules
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from chat_util_functions import get_prompt_from_md, log_interaction, copy_to_clipboard, show_response
+from deepseek_chat_app.chat_util_functions import get_prompt_from_md, log_interaction, copy_to_clipboard, show_response
+
 
 class TestChatUtilFunctions(unittest.TestCase):
 
@@ -33,7 +31,8 @@ class TestChatUtilFunctions(unittest.TestCase):
         duration = MagicMock()
 
         # Call the function to be tested
-        log_interaction("Test prompt", start_time, end_time, duration, "Test response", "test_log.md")
+        log_interaction("Test prompt", start_time, end_time,
+                        duration, "Test response", "test_log.md")
 
         # Assert that the file was opened in append mode and the content was written correctly
         mock_open_file.assert_called_with("test_log.md", "a", encoding="utf-8")
@@ -53,8 +52,8 @@ class TestChatUtilFunctions(unittest.TestCase):
         mock_window.clipboard_append.assert_called_once_with("Test response")
         mock_window.update.assert_called_once()
 
-    @patch('chat_util_functions.HTMLLabel')
-    def test_show_response(self, mock_html_label):
+    @patch('deepseek_chat_app.chat_util_functions.HTMLLabel')
+    def test_show_response(self, mock_HTMLLabel):
         # Create a real Tk instance to serve as the root window
         root = tk.Tk()
 
@@ -65,8 +64,9 @@ class TestChatUtilFunctions(unittest.TestCase):
 
         # Assert that the tkinter window was created and configured correctly
         self.assertEqual(root.title(), "Test Title")
-        mock_html_label.assert_called_once()
+        mock_HTMLLabel.assert_called_once()
         root.destroy()
+
 
 if __name__ == '__main__':
     unittest.main()

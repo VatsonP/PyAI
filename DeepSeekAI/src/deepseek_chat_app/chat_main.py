@@ -5,7 +5,8 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 # Import functions from the separate file
-from chat_util_functions import get_prompt_from_md, log_interaction, show_response
+from deepseek_chat_app.chat_util_functions import get_prompt_from_md, log_interaction, show_response
+
 
 def main():
     # Load environment variables from the .env file (if present)
@@ -57,11 +58,11 @@ def main():
             print("Error accessing response text")
             exit(1)
 
-        log_interaction(prompt_text, start_time, end_time, duration, response_text)
+        log_interaction(prompt_text, start_time,
+                        end_time, duration, response_text)
     except Exception as e:
         print(f"Error querying DeepSeek API: {e}")
         exit(1)
-
 
     # Rest of the code remains the same
     try:
@@ -70,13 +71,13 @@ def main():
         print(f"Error converting response text to Markdown: {e}")
         exit(1)
 
-
     # Show response in GUI window
     try:
         show_response("DEEPSEEK AI Response", response_html, response_text)
     except Exception as e:
         print(f"Error showing response: {e}")
         exit(1)
+
 
 if __name__ == "__main__":
     main()
