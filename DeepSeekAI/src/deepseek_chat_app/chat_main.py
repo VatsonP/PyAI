@@ -9,10 +9,28 @@ from deepseek_chat_app.chat_util_functions import get_prompt_from_md, log_intera
 
 
 def main():
-    # Your entire application logic from chat_main.py goes here.
-    # For example:
-    # prompt = get_prompt_from_md('prompt_template.md')
-    # ...and so on.
+    """The main entry point for the DeepSeek Chat Application.
+
+    This function orchestrates the entire application flow:
+    1. Loads environment variables from a .env file.
+    2. Retrieves and validates the DeepSeek API key.
+    3. Initializes the DeepSeek API client.
+    4. Reads a user prompt from a markdown file.
+    5. Sends the prompt to the DeepSeek API and measures the response time.
+    6. Logs the complete interaction (prompt, response, timing) to a file.
+    7. Converts the response from markdown to HTML.
+    8. Displays the HTML response in a graphical tkinter window.
+
+    :raises ValueError: If the DEEPSEEK_API_KEY environment variable is not set.
+    :raises SystemExit: The application will exit if it encounters errors during
+                        API initialization, file I/O, or UI rendering.
+
+    :side-effects:
+        - Reads from environment variables and files (`.env`, `input_prompt.md`).
+        - Performs network requests to the DeepSeek API.
+        - Writes to a log file (`output_results.md`).
+        - Renders a GUI window.
+    """
     print("Running chat_main.py's main function...")
 
     # Load environment variables from the .env file (if present)

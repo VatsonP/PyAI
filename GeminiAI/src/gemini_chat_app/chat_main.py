@@ -11,10 +11,28 @@ os.environ['GRPC_TRACE'] = ''
 
 
 def main():
-    # Your entire application logic from chat_main.py goes here.
-    # For example:
-    # prompt = get_prompt_from_md('prompt_template.md')
-    # ...and so on.
+    """The main entry point for the Gemini Chat Application.
+
+    This function orchestrates the entire application flow:
+    1. Loads environment variables from a .env file.
+    2. Retrieves and validates the Gemini API key.
+    3. Initializes the Gemini API client.
+    4. Reads a user prompt from a markdown file.
+    5. Sends the prompt to the Gemini API and measures the response time.
+    6. Logs the complete interaction (prompt, response, timing) to a file.
+    7. Converts the response from markdown to HTML.
+    8. Displays the HTML response in a graphical tkinter window.
+
+    :raises ValueError: If the GEMINI_API_KEY environment variable is not set.
+    :raises SystemExit: The application will exit if it encounters errors during
+                        API initialization, file I/O, or UI rendering.
+
+    :side-effects:
+        - Reads from environment variables and files (`.env`, `input_prompt.md`).
+        - Performs network requests to the Gemini API.
+        - Writes to a log file (`output_results.md`).
+        - Renders a GUI window.
+    """
     print("Running chat_main.py's main function...")
 
     # Load environment variables from the .env file (if present)
