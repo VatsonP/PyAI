@@ -10,6 +10,12 @@ from mistral_chat_app.chat_util_functions import get_prompt_from_md, log_interac
 
 
 def main():
+    # Your entire application logic from chat_main.py goes here.
+    # For example:
+    # prompt = get_prompt_from_md('prompt_template.md')
+    # ...and so on.
+    print("Running chat_main.py's main function...")
+
     # Load environment variables from the .env file (if present)
     load_dotenv()
 

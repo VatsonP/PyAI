@@ -27,3 +27,6 @@ dev = [
 [tool.setuptools.packages.find]
 # This tells the build system where to find the source code package.
 where = ["src"]
+
+[project.scripts]
+gemini-chat = "gemini_chat_app.chat_main:main"

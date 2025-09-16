@@ -1,14 +1,22 @@
+from gemini_chat_app.chat_util_functions import get_prompt_from_md, log_interaction, show_response
 import os
 import google.generativeai as genai
 import markdown
 from datetime import datetime
 from dotenv import load_dotenv
-
+os.environ['GRPC_VERBOSITY'] = 'ERROR'
+os.environ['GRPC_TRACE'] = ''
 
 # Import functions from the separate file
-from gemini_chat_app.chat_util_functions import get_prompt_from_md, log_interaction, show_response
+
 
 def main():
+    # Your entire application logic from chat_main.py goes here.
+    # For example:
+    # prompt = get_prompt_from_md('prompt_template.md')
+    # ...and so on.
+    print("Running chat_main.py's main function...")
+
     # Load environment variables from the .env file (if present)
     load_dotenv()
 
@@ -54,7 +62,6 @@ def main():
         print(f"Error starting chat session: {e}")  # Error message
         exit(1)
 
-
     # Set input prompt and get model response
     try:
         prompt_text = get_prompt_from_md()
@@ -63,9 +70,10 @@ def main():
         end_time = datetime.now()
         duration = end_time - start_time
         response_text = response.text
-        log_interaction(prompt_text, start_time, end_time, duration, response_text)
+        log_interaction(prompt_text, start_time,
+                        end_time, duration, response_text)
     except Exception as e:
-        print(f"Error sending message or processing response: {e}")        
+        print(f"Error sending message or processing response: {e}")
         exit(1)
 
     # Converting response text to Markdown
@@ -81,6 +89,7 @@ def main():
     except Exception as e:
         print(f"Error showing response: {e}")
         exit(1)
+
 
 if __name__ == "__main__":
     main()
