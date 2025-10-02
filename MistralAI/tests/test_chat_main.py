@@ -18,9 +18,10 @@ class TestChatMain(unittest.TestCase):
     @patch('mistral_chat_app.chat_main.Mistral')
     @patch('mistral_chat_app.chat_main.show_response')
     @patch('mistral_chat_app.chat_main.log_interaction')
+    @patch('mistral_chat_app.chat_main.tk.Tk')  # Mock the main Tkinter window
     @patch('mistral_chat_app.chat_main.load_dotenv')
     @patch('mistral_chat_app.chat_main.os.getenv')
-    def test_main_success(self, mock_getenv, mock_load_dotenv, mock_log_interaction, mock_show_response, mock_mistral, mock_get_prompt_from_md):
+    def test_main_success(self, mock_getenv, mock_load_dotenv, mock_tk, mock_log_interaction, mock_show_response, mock_mistral, mock_get_prompt_from_md):
         # Mock the return values of the patched functions
         mock_getenv.return_value = "test_key"
         mock_get_prompt_from_md.return_value = "Test prompt"

@@ -53,18 +53,22 @@ class TestChatUtilFunctions(unittest.TestCase):
 
     @patch('mistral_chat_app.chat_util_functions.HTMLLabel')
     def test_show_response(self, mock_HTMLLabel):
-        # Create a real Tk instance to serve as the root window
-        root = tk.Tk()
+        # Create a MagicMock to simulate the parent widget (e.g., a tk.Tk() window)
+        mock_parent = MagicMock()
 
-        # Call the function to be tested
-        with patch('tkinter.Tk', return_value=root):
-            with patch.object(root, 'mainloop'):
-                show_response("Test Title", "<h1>Test</h1>", "Test response")
+        # The function calls parent.winfo_toplevel().title(), so we must configure
+        # the mock to handle this chain of calls.
+        mock_parent.winfo_toplevel.return_value = mock_parent
 
-        # Assert that the tkinter window was created and configured correctly
-        self.assertEqual(root.title(), "Test Title")
+        # Call the function to be tested, passing the mock widget as the parent
+        show_response(mock_parent, "Test Title",
+                      "<h1>Test</h1>", "Test response")
+
+        # Assert that the window's title was set correctly via the mock
+        mock_parent.winfo_toplevel().title.assert_called_once_with("Test Title")
+
+        # Assert that the HTMLLabel was created, as before
         mock_HTMLLabel.assert_called_once()
-        root.destroy()
 
 
 if __name__ == '__main__':
