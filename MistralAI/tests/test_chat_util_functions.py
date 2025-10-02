@@ -1,3 +1,10 @@
+"""Unit tests for the chat_util_functions module.
+ 
+This test suite validates the helper functions in `chat_util_functions.py`.
+Each function (file reading, logging, clipboard, and UI component building)
+is tested in isolation to ensure its correctness and reliability.
+"""
+
 import unittest
 from unittest.mock import patch, mock_open, MagicMock
 import os

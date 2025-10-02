@@ -1,3 +1,10 @@
+"""Unit tests for the chat_main module.
+ 
+This test suite validates the core application logic contained in `chat_main.py`.
+It uses mocking to isolate the main function from external dependencies such as
+APIs, file systems, and the GUI, ensuring that the orchestration logic is correct.
+"""
+
 import unittest
 from unittest.mock import patch, MagicMock
 import os

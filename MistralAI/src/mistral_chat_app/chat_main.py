@@ -1,3 +1,11 @@
+"""Core application logic for the Mistral AI Chat Application.
+ 
+This module serves as the main orchestrator for the application. It handles
+loading configuration, initializing the API client, fetching the user prompt,
+making the API call to Mistral, logging the interaction, and displaying the
+response in a GUI window.
+"""
+
 import tkinter as tk
 import os
 from mistralai import Mistral

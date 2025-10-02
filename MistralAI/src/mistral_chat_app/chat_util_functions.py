@@ -1,3 +1,11 @@
+"""Utility and helper functions for the Mistral AI Chat Application.
+
+This module contains decoupled, reusable functions that support the main
+application logic. Responsibilities include reading prompts from files,
+logging interactions, handling clipboard operations, and building the GUI
+components for the response window.
+"""
+
 import tkinter as tk
 from tkinter import scrolledtext
 from tkhtmlview import HTMLLabel
