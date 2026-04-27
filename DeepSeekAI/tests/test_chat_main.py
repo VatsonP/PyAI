@@ -1,6 +1,5 @@
 import unittest
 from unittest.mock import patch, MagicMock
-import os
 
 from deepseek_chat_app.chat_main import main
 
@@ -17,20 +16,18 @@ class TestChatMain(unittest.TestCase):
     @patch('deepseek_chat_app.chat_main.OpenAI')
     @patch('deepseek_chat_app.chat_main.show_response')
     @patch('deepseek_chat_app.chat_main.log_interaction')
+    @patch('deepseek_chat_app.chat_main.tk.Tk')
     @patch('deepseek_chat_app.chat_main.load_dotenv')
     @patch('deepseek_chat_app.chat_main.os.getenv')
-    def test_main_success(self, mock_getenv, mock_load_dotenv, mock_log_interaction, mock_show_response, mock_openai, mock_get_prompt_from_md):
-        # Mock the return values of the patched functions
+    def test_main_success(self, mock_getenv, mock_load_dotenv, mock_tk, mock_log_interaction, mock_show_response, mock_openai, mock_get_prompt_from_md):
         mock_getenv.return_value = "test_key"
         mock_get_prompt_from_md.return_value = "Test prompt"
         mock_openai.return_value.chat.completions.create.return_value = MagicMock(
             choices=[MagicMock(message=MagicMock(content="Test response"))]
         )
 
-        # Call the main function
         main()
 
-        # Assert that the functions were called with the expected arguments
         mock_load_dotenv.assert_called_once()
         mock_get_prompt_from_md.assert_called_once()
         mock_openai.assert_called_once_with(
