@@ -1,10 +1,22 @@
+  
+  • Current state:
 
-• Implemented the Gemini project updates to match the Mistral reference flow more closely.
+  - GeminiAI was upgraded to match the current MistralAI structure and style.
+  - DeepSeekAI was upgraded to the same level and its tests passed with unittest.
+  - MistralAI\.codex\suggestions.md now contains:
+      - a new cross-project standardization section at the top
+      - the earlier detailed architectural improvement plan below it
+  - I respected your instruction not to read .env file contents.
 
-  The main change is architectural: GUI window lifecycle now lives in GeminiAI/src/gemini_chat_app/chat_main.py, while GeminiAI/src/
-  gemini_chat_app/chat_util_functions.py only builds UI components inside a passed parent widget, matching the Mistral split. I also replaced
-  stale/misaligned comments in GeminiAI/src/gemini_chat_app__main__.py, updated the tests in GeminiAI/tests/test_chat_main.py and GeminiAI/tests/
-  test_chat_util_functions.py to reflect the new structure, and added a new GeminiAI/README.md aligned to the etalon style.
+  Useful file locations:
 
-  I did not read any .env file contents. Verification is partial: test execution failed because pytest is not installed in the current Python
-  environment (No module named pytest).
+  - GeminiAI/README.md
+  - DeepSeekAI/README.md
+  - MistralAI.codex/suggestions.md
+
+  Remaining optional cleanup:
+
+  - rename/remove DeepSeekAI\GEMINI.md
+  - standardize __init__.py comments across all three repos
+  - normalize dependency name casing in pyproject.toml
+  - clean encoding artifacts in MistralAI\README.md
