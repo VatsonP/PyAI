@@ -1,10 +1,6 @@
 {
     "folders": [
         {
-            "path": ".",
-            "name": "My Workspace Root"
-        },
-        {
             "path": "./DeepSeekAI",
             "name": "DeepSeekAI"
         },
