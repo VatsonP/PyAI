@@ -1,13 +1,51 @@
-from gemini_chat_app.chat_util_functions import get_prompt_from_md, log_interaction, show_response
+"""Core application logic for the Gemini AI Chat Application.
+
+This module serves as the main orchestrator for the application. It handles
+loading configuration, initializing the API client, fetching the user prompt,
+making the API call to Gemini, logging the interaction, and displaying the
+response in a GUI window.
+"""
+
+import tkinter as tk
 import os
 import google.generativeai as genai
 import markdown
 from datetime import datetime
 from dotenv import load_dotenv
+
+from gemini_chat_app.chat_util_functions import get_prompt_from_md, log_interaction, show_response
+
 os.environ['GRPC_VERBOSITY'] = 'ERROR'
 os.environ['GRPC_TRACE'] = ''
 
-# Import functions from the separate file
+
+def show_response_gui_window(title, response_html, response_text):
+    """Creates, configures, and runs the main tkinter GUI window.
+
+    This function is responsible for the entire lifecycle of the GUI window.
+    It creates the root window, sets its properties, populates it using the
+    show_response utility function, and then starts the main event loop.
+
+    :param title: The title for the main window.
+    :type title: str
+    :param response_html: The HTML content to be displayed.
+    :type response_html: str
+    :param response_text: The raw text content for the clipboard.
+    :type response_text: str
+    :raises SystemExit: Exits if any error occurs during UI rendering.
+
+    :side-effects: This is a blocking call that enters the tkinter main event loop.
+    """
+    try:
+        root = tk.Tk()
+        root.geometry("1024x768")
+        root.resizable(True, True)
+
+        show_response(root, title, response_html, response_text)
+        root.mainloop()
+    except Exception as e:
+        print(f"Error showing response: {e}")
+        exit(1)
 
 
 def main():
@@ -63,7 +101,7 @@ def main():
     # Create model and client initialization
     try:
         model = genai.GenerativeModel(
-            model_name="gemini-2.0-flash-exp",
+            model_name="gemini-2.5-flash-lite",
             generation_config=generation_config,
         )
     except Exception as e:
@@ -80,7 +118,7 @@ def main():
         print(f"Error starting chat session: {e}")  # Error message
         exit(1)
 
-    # Set input prompt and get model response
+    # Query the Gemini API, Set input prompt and get model response
     try:
         prompt_text = get_prompt_from_md()
         start_time = datetime.now()
@@ -94,19 +132,16 @@ def main():
         print(f"Error sending message or processing response: {e}")
         exit(1)
 
-    # Converting response text to Markdown
+    # Convert response text to Markdown-formatted HTML
     try:
         response_html = markdown.markdown(response_text)
     except Exception as e:
         print(f"Error converting response text to Markdown: {e}")
         exit(1)
 
-    # Show response in GUI window
-    try:
-        show_response("Gemini AI Response", response_html, response_text)
-    except Exception as e:
-        print(f"Error showing response: {e}")
-        exit(1)
+    # Display the final response in its own GUI window
+    show_response_gui_window(
+        "Gemini AI Response", response_html, response_text)
 
 
 if __name__ == "__main__":
