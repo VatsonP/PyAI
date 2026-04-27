@@ -1,15 +1,27 @@
 {
-	"folders": [
-		{
-			"path": "DeepSeekAI"
-		},	
-		{
-			"path": "GeminiAI"
-		},
-		{
-			"path": "MistralAI"
-		}
-
-	],
-	"settings": {}
+    "folders": [
+        {
+            "path": ".",
+            "name": "My Workspace Root"
+        },
+        {
+            "path": "./DeepSeekAI",
+            "name": "DeepSeekAI"
+        },
+        {
+            "path": "./GeminiAI",
+            "name": "GeminiAI"
+        },
+        {
+            "path": "./MistralAI",
+            "name": "MistralAI"
+        }
+    ],
+    "settings": {
+        "python.analysis.extraPaths": [
+            "./DeepSeekAI/src",
+            "./GeminiAI/src",
+            "./MistralAI/src"
+        ]
+    }
 }
