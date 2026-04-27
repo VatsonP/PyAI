@@ -1,4 +1,55 @@
-﻿# Architectural Suggestions for `MistralAI`
+﻿# Standardization Across the 3 Projects
+
+This section lists the small naming and structural inconsistencies that still remain across `MistralAI`, `GeminiAI`, and `DeepSeekAI`.
+
+## Documentation
+
+- `DeepSeekAI` still has a file named `GEMINI.md`, which is misleading and should be renamed or removed.
+- `MistralAI` README still contains some encoding artifacts in headings and decorative symbols.
+- The README files are now close in structure, but section titles and wording are not fully standardized yet.
+
+## Package Comments and Metadata
+
+- `src/deepseek_chat_app/__init__.py` still contains a stale comment referring to `mistral_chat_app`.
+- `__init__.py` files are not standardized across the three projects. They should either all be empty or all contain correct provider-specific comments.
+- Dependency naming is slightly inconsistent in `pyproject.toml`:
+  - `MistralAI` uses `Markdown`
+  - `DeepSeekAI` uses `markdown`
+  This usually works, but the dependency style should be unified.
+
+## UI and User-Facing Text
+
+- Window titles differ in capitalization style:
+  - `Mistral AI Response`
+  - `Gemini AI Response`
+  - `DeepSeek AI Response`
+  This is acceptable, but if strict standardization is the goal, formatting rules should be made explicit.
+- Console print and error message phrasing is similar, but not fully normalized across the projects.
+
+## Project Artifacts
+
+- `MistralAI` contains `.continue/`, while the other projects do not.
+- `GeminiAI` contains `codex_mod/`, while the other projects do not.
+- Hidden config and helper directories differ between repositories. That may be intentional, but it makes the projects less symmetrical as parallel demo references.
+
+## Test and Environment Conventions
+
+- The test files are now structurally aligned, but the environments are still inconsistent:
+  - some virtual environments include `pytest`
+  - some required fallback execution through `unittest`
+- For full parity, the same development dependencies should be installed and verified in all three repositories.
+
+## Provider-Specific Code Notes
+
+- `MistralAI` uses `mistralai.Mistral`
+- `GeminiAI` uses `google.generativeai`
+- `DeepSeekAI` uses `openai.OpenAI` with a custom `base_url`
+
+This provider-specific divergence is correct and should remain, but the comments and README notes should state explicitly that the architecture is shared while the provider adapter layer differs.
+
+---
+
+# Architectural Suggestions for `MistralAI`
 
 This document proposes structural improvements for the demo project in `D:\Trainings\PyProj\PyAI\MistralAI`.
 
@@ -407,3 +458,6 @@ That change would preserve the educational value of the demo while meaningfully 
 - testability
 - provider isolation
 - future extensibility
+
+---
+---
