@@ -1,7 +1,7 @@
 
-# Mistral AI Chat Application ✨
+# Mistral AI Chat Application
 
-Welcome to the Mistral AI Chat Application! 
+Welcome to the Mistral AI Chat Application!
 This is a simple but powerful desktop application that allows you to interact with Mistral AI's state-of-the-art language models through a clean, graphical user interface (GUI).
 
 This project is designed to be a simple learning resource for those new to Python. It demonstrates modern Python development practices, including project structure, dependency management, testing, and handling APIs.
@@ -16,7 +16,7 @@ This project is designed to be a simple learning resource for those new to Pytho
 -   **Clipboard Functionality**: Easily copy the AI's full response to your clipboard with a single button click.
 -   **Modern Python Project**: Built using `pyproject.toml` for packaging and dependency management, a `src` layout for clean code separation, and a full suite of unit tests.
 
-## 🚀 Getting Started: A Guide for Newcomers
+## Getting Started: A Guide for Newcomers
 
 This guide will walk you through every step needed to get this application running on your machine.
 
@@ -95,7 +95,7 @@ The application reads your question or instruction from a file named `input_prom
 
 You are now fully set up!
 
-## 🏃‍♀️ Running the Application
+## Running the Application
 
 With your virtual environment still active, run the following command in your terminal:
 
@@ -109,7 +109,7 @@ This command works because it was defined as a `script` in our `pyproject.toml` 
 3.  Open a GUI window on your screen with the formatted response.
 4.  Append the results of the interaction to `output_results.md`.
 
-## ✅ Running the Tests
+## Running the Tests
 
 This project comes with a suite of unit tests to ensure everything works correctly. Tests are crucial for maintaining code quality and preventing bugs.
 
@@ -121,35 +121,35 @@ pytest
 
 You should see a report indicating that all tests have passed. Our tests are configured to run "headlessly," meaning they won't open any actual GUI windows during testing.
 
-## 📂 Project Structure Explained
+## Project Structure Explained
 
 Understanding the layout of the files is key to understanding the project.
 
 ```
 MistralAI/
-¦
-├── .env                  # <-- Your secret API key lives here. (DO NOT SHARE!)
-├── input_prompt.md       # <-- You write your AI prompts in this file.
-├── output_results.md     # <-- The application logs all interactions here.
-├── pyproject.toml        # <-- The heart of the project: config, dependencies, etc.
-¦
-├── src/                  # <-- All of our main application code is here.
-│   └── mistral_chat_app/
-│       ├── __init__.py         # Makes this directory a Python "package".
-│       ├── __main__.py         # Allows running the package as a script.
-│       ├── chat_main.py        # The main logic: API calls, orchestration.
-│       └── chat_util_functions.py # Helper functions for GUI, logging, etc.
-│
-└── tests/                # <-- All of our tests live here.
-    ├── test_chat_main.py
-    └── test_chat_util_functions.py
+|
+|-- .env                     # <-- Your secret API key lives here. (DO NOT SHARE!)
+|-- input_prompt.md          # <-- You write your AI prompts in this file.
+|-- output_results.md        # <-- The application logs all interactions here.
+|-- pyproject.toml           # <-- The heart of the project: config, dependencies, etc.
+|
+|-- src/                     # <-- All of our main application code is here.
+|   `-- mistral_chat_app/
+|       |-- __init__.py      # Makes this directory a Python "package".
+|       |-- __main__.py      # Allows running the package as a script.
+|       |-- chat_main.py     # The main logic: API calls, orchestration.
+|       `-- chat_util_functions.py # Helper functions for GUI, logging, etc.
+|
+`-- tests/                   # <-- All of our tests live here.
+    |-- test_chat_main.py
+    `-- test_chat_util_functions.py
 ```
 
 -   **`pyproject.toml`**: This is the modern standard for configuring Python projects. It tells Python what your project is called, what other packages it needs to run (`dependencies`), and defines convenient commands (`scripts`).
 -   **`src/` layout**: Placing all application code inside a `src` directory is a best practice that cleanly separates the code you write from project configuration files.
 -   **Separation of Concerns**: Notice how `chat_main.py` handles the high-level logic (the "what"), while `chat_util_functions.py` handles the low-level details (the "how"). This makes the code much easier to read, test, and maintain.
 
-## ⚙️ How It Works: The Code Flow
+## How It Works: The Code Flow
 
 When you run `mistral-chat`:
 

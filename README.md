@@ -12,6 +12,9 @@
 
  Directory for My own Local Copy: d:\Trainings\PyProj\
 
+ Virtual environment:
+ .\.venv\Scripts\activate.ps1
+
  Projects folder structure:
   |-> AI_Studio
   |-> DeepSeekAI

@@ -12,7 +12,7 @@ requires-python = ">=3.12"
 dependencies = [
     "mistralai",
     "tkhtmlview",
-    "Markdown",
+    "markdown",
     "python-dotenv",
 ]
 
