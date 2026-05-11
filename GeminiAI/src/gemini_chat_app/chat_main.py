@@ -101,7 +101,7 @@ def main():
     # Create model and client initialization
     try:
         model = genai.GenerativeModel(
-            model_name="gemini-2.5-flash-lite",
+            model_name="gemini-flash-latest",
             generation_config=generation_config,
         )
     except Exception as e:
